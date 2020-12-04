@@ -1,0 +1,21 @@
+{
+  "name": "regionalizer",
+  "version": "0.0.1-alpha.0",
+  "description": "A JavaScript library for dynamic re-rendering of defined regions",
+  "main": "index.js",
+  "author": "Alexander Schuster",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:alex-schuster/regionalizer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alex-schuster/regionalizer/issues"
+  },
+  "dependencies": {
+    "nunjucks": "^3.2.2"
+  },
+  "keywords": [
+    "regionalizer"
+  ]
+}
