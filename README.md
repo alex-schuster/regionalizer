@@ -39,8 +39,8 @@ You can define **layouts**, **views** and **regions**. The latter can be seen as
       "layout": "default"
     },
     {
-      "name": "ressourceItem",
-      "route": "/ressources/([0-9]+)",
+      "name": "resourceItem",
+      "route": "/resources/([0-9]+)",
       "layout": "anotherLayout"
     }
   ],
