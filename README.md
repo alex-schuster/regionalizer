@@ -128,7 +128,7 @@ Note that the `id` attribute of the wrapper element is set according to the defi
 
 ### API usage
 
-In order to use regionalizer, you have to import the library. You also have to compile your templates via `nunjucks-precompile path/to/templates > templates.js` and include the generated `templates.js` file (or whatever name you choose for it). Furthermore, make the definitions object available. If you are using webpack, you can achieve this by adding `require('./templates')` and `const definitions = require('./path/to/definitions.json');` to your script.
+In order to use regionalizer, you have to import the library. You also have to compile your templates via `nunjucks-precompile path/to/templates > templates.js` and include the generated `templates.js` file (or whatever name you choose for it). Furthermore, make the definitions object available. If you are using webpack, you can achieve this by adding `require('./templates')` and `const definitions = require('./path/to/definitions.json')` to your script.
 
 ```javascript
 // Import the library.
