@@ -19,31 +19,33 @@ You can define **layouts**, **views** and **regions**. The latter can be seen as
 
 Inside your definitions object (which is ideally available to your backend as a JSON file), the property `layouts` is responsible for providing information about the structure of each separate layout. It could look as follows:
 
-```
-"layouts": [
-  {
-    "name": "default",
-    "regions": [
-      "navigation",
-      "content",
-      "footer"
-    ]
-  },
-  {
-    "name": "anotherLayout",
-    "regions": [
-      "navigation",
-      "content",
-      "anotherRegion",
-      "footer"
-    ]
-  }
-]
+```json
+{
+  "layouts": [
+    {
+      "name": "default",
+      "regions": [
+        "navigation",
+        "content",
+        "footer"
+      ]
+    },
+    {
+      "name": "anotherLayout",
+      "regions": [
+        "navigation",
+        "content",
+        "anotherRegion",
+        "footer"
+      ]
+    }
+  ]
+}
 ```
 
 The `name` property must be a valid file name (without extension) and should furthermore be unique. In this example, you would create two template files inside your `templates/layouts` directory which are called `default.html` and `anotherLayout.html`. These contain the markup of the respective layout and could look like this:
 
-```
+```html
 {{ navigation | safe }}
 <div>
   {{ content | safe }}
@@ -58,24 +60,26 @@ You can place your regions where you would like them to appear using the provide
 
 A view can be defined inside the already mentioned definitions object as follows:
 
-```
-"views": [
-  {
-    "name": "index",
-    "route": "/",
-    "layout": "default"
-  },
-  {
-    "name": "about",
-    "route": "/about",
-    "layout": "default"
-  },
-  {
-    "name": "resourceItem",
-    "route": "/resources/([0-9]+)",
-    "layout": "anotherLayout"
-  }
-]
+```json
+{
+  "views": [
+    {
+      "name": "index",
+      "route": "/",
+      "layout": "default"
+    },
+    {
+      "name": "about",
+      "route": "/about",
+      "layout": "default"
+    },
+    {
+      "name": "resourceItem",
+      "route": "/resources/([0-9]+)",
+      "layout": "anotherLayout"
+    }
+  ]
+}
 ```
 
 Just add the property `views` to your definitions and specify a `name`. The `route` is a regular expression. The first one matching the requested path will be selected. Put the `name` of the layout you want to be used to render the view inside the `layout` property. 
@@ -86,32 +90,34 @@ Regions are defined inside the `regions` property of the definitions object. The
 
 If a region is rather considered a singleton and sould not be rendered for each view, you can set `isPersistent` to `true`. However, this does not mean that the region has to be present in every layout. When needed, it will be inserted just as it was before it was removed from the DOM by regionalizer.
 
-```
-"regions": [
-  {
-    "name": "navigation",
-    "domElement": "header",
-    "isPersistent": true
-  },
-  {
-    "name": "content",
-    "domElement": "#foo"
-  },
-  {
-    "name": "anotherRegion",
-    "domElement": "#bar"
-  },
-  {
-    "name": "footer",
-    "domElement": "footer",
-    "isPersistent": true
-  }
-]
+```json
+{
+  "regions": [
+    {
+      "name": "navigation",
+      "domElement": "header",
+      "isPersistent": true
+    },
+    {
+      "name": "content",
+      "domElement": "#foo"
+    },
+    {
+      "name": "anotherRegion",
+      "domElement": "#bar"
+    },
+    {
+      "name": "footer",
+      "domElement": "footer",
+      "isPersistent": true
+    }
+  ]
+}
 ```
 
 The corresponding template file `templates/regions/content.html` for the content region could then look as folows:
 
-```
+```html
 <main id="foo">
   <h1>{{ fooVariable }}</h1>
   <p>{{ barVariable }}</p>
@@ -124,7 +130,7 @@ Note that the `id` attribute of the wrapper element is set according to the defi
 
 In order to use regionalizer, you have to import the library. You also have to compile your templates via `nunjucks-precompile path/to/templates > templates.js` and include the generated `templates.js` file (or whatever name you choose for it). Furthermore, make the definitions object available. If you are using webpack, you can achieve this by adding `require('./templates')` and `const definitions = require('./path/to/definitions.json');` to your script.
 
-```
+```javascript
 // Import the library.
 import regionalizer from 'regionalizer';
 
