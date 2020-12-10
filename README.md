@@ -134,7 +134,8 @@ In order to use regionalizer, you have to import the library. You also have to c
 // Import the library.
 import regionalizer from 'regionalizer';
 
-// Import the definitions object. As mentioned, you could use webpack to require a JSON file.
+// Import the definitions object. As mentioned, you could use webpack
+// to require a JSON file.
 const definitions = {
   // Definitions object here.
 };
@@ -144,13 +145,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const myRegionalizer = regionalizer(definitions);
   myRegionalizer.init(definitions);
 
-  // Detect the event which is fired whenever the user navigates to another view.
+  // Detect the event which is fired whenever the user navigates to
+  // another view.
   window.addEventListener('regionalizer.inAppNavigation', (event) => {
-    // Provide custom data to be used inside the templates (custom variables).
-    // This can be more complex in real life, for example if the data has to be fetched from an API.
-    const myData = { fooVariable: 'foo value', barVariable: 'bar value' };
+
+    // Provide custom data to be used inside the templates (custom
+    // variables). This can be more complex in real life, for example
+    // if the data has to be fetched from an API.
+    const myData = {
+      fooVariable: 'foo value',
+      barVariable: 'bar value'
+    };
+  
     // Change the view like this.
     myRegionalizer.changeView(event.detail.path, myData).then(() => {
+
       // Do something after the new view has been displayed.
       console.log('View loaded');
     });
