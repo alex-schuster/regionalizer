@@ -2,6 +2,7 @@
 
 [![GitHub](https://img.shields.io/github/license/alex-schuster/regionalizer)](LICENSE)
 [![npm](https://img.shields.io/npm/v/regionalizer)](https://www.npmjs.com/package/regionalizer)
+[![CircleCI](https://img.shields.io/circleci/build/github/alex-schuster/regionalizer)](https://app.circleci.com/pipelines/github/alex-schuster/regionalizer)
 
 *regionalizer* is a JavaScript library for dynamic re-rendering of defined regions. It uses Mozilla's [nunjucks](https://mozilla.github.io/nunjucks/) templating engine and enables you to share your template files between frontend and backend. This is convenient if you want your backend to serve a fully crawlable document which then is turned into a web app that only renders the dynamic parts of your views. Many frontend frameworks would require Node.js to deliver a pre-rendered page. With regionalizer, you can read your view definitions from a JSON file using the backend technology of your choice and initially deliver the complete markup. The frontend will then render the necessary parts of your views if the user navigates to another route.
 
