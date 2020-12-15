@@ -1,5 +1,9 @@
+coverage
+tests
+.babelrc
 .editorconfig
 .eslintignore
 .eslintrc.json
 .gitattributes
 .gitignore
+jest.config.json
