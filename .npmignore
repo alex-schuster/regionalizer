@@ -8,3 +8,4 @@ tests
 .gitattributes
 .gitignore
 jest.config.json
+*.tgz
