@@ -15,14 +15,14 @@ import { getAnchor } from './lib/utility';
  */
 const createRegionalizer = (providedDefinitions) => {
   /**
-   * Holds the definitionReader instance.
+   * Holds the definition reader instance.
    *
    * @type {Object}
    */
   const definitionReader = createDefinitionReader(providedDefinitions);
 
   /**
-   * Holds the viewManager instance.
+   * Holds the view manager instance.
    *
    * @type {Object}
    */
